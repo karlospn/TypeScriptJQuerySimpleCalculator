@@ -1,5 +1,6 @@
 ﻿/// <reference path="typings/jquery.d.ts" />
 
+
 class Calculator {
 
     private output: JQuery;
@@ -7,24 +8,28 @@ class Calculator {
     private clear: JQuery;
 
     private numbers: number[];
-    private operators: string [];
+    private operators: string[];
 
-    constructor(output: string, calculate: string, clear: string, numbers: number[], operators: string[]) {
+    private calculateService: ICalculateService;
+    private bindingButtonsService: IBindingButtonsService
 
-        this.output = $(`#${output}`);
-        this.calculate = $(`#${calculate}`);
-        this.clear = $(`.${clear}`);
-        this.numbers = numbers;
-        this.operators = operators;
+    constructor(app: Iapp, calculateService : ICalculateService, bindingButtonsService : IBindingButtonsService) {
+
+        this.output = $(`#${app.output}`);
+        this.calculate = $(`#${app.calculate}`);
+        this.clear = $(`.${app.clear}`);
+        this.calculateService = calculateService;
+        this.bindingButtonsService = bindingButtonsService;
 
         this.wireEvents();
     }
 
 
     private wireEvents(): void {
+
         this.calculate.click((): void => {
             try {
-                this.output.html(eval(this.output.text()));
+                this.calculateService.calculate(this.output, this.output);
             } catch (e) {
                 this.output.html('NaN');
             } 
@@ -34,28 +39,22 @@ class Calculator {
             this.output.html("");
         });
 
-        this.numbers.forEach((index): void => {
-            var number = $("span:contains("+ index + ")");
-            if (number !== null || number ! == undefined) {
-                number.click((): void => {
-                    this.output.html(this.output.text() + number.text());
-                });
-            }
-        });
+        this.bindingButtonsService.bind([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], this.output);
+        this.bindingButtonsService.bind(['+', '-', '*', '/', '.'], this.output);
 
-        this.operators.forEach((index): void => {
-            var operator = $("span:contains(" + index + ")");
-            if (operator !== null || operator ! == undefined) {
-                operator.click((): void => {
-                    this.output.html(this.output.text() + operator.text());
-                });
-            }
-        });
     }
 }
 
 $(document)
     .ready(() => {
 
-        var calculator = new Calculator('result', 'calculate', 'clear', [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], ['+', '-', '*', '/', '.']);
+        var calcService = new CalculateService();
+        var bindingButtons = new BindingButtonsService();
+        var calculator = new Calculator({
+                calculate: "calculate",
+                output: "result",
+                clear: "clear"
+            },
+            calcService,
+            bindingButtons);
     });
