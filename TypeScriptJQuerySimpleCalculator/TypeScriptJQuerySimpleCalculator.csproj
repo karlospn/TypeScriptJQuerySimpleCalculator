@@ -27,7 +27,7 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="Calculator.ts" />
     <TypeScriptCompile Include="BindingButtonsService\BindingButtonsService.ts" />
     <TypeScriptCompile Include="BindingButtonsService\IBindingButtonsService.ts" />
     <TypeScriptCompile Include="bootstrapper.ts" />

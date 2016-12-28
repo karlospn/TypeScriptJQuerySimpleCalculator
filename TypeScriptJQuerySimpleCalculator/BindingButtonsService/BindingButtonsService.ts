@@ -1,4 +1,6 @@
-﻿export class BindingButtonsService implements IBindingButtonsService {
+﻿import ButtonsService = require("./IBindingButtonsService");
+
+export class BindingButtonsService implements ButtonsService.IBindingButtonsService {
 
     bind(arrayItems: any[], outputField: JQuery): void {
 

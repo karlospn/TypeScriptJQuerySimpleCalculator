@@ -1,4 +1,4 @@
-﻿interface IBindingButtonsService {
+﻿export interface IBindingButtonsService {
 
     bind(arrayItems: any[], outputField : JQuery) : void;
 }

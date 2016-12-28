@@ -1,4 +1,8 @@
 ﻿/// <reference path="typings/jquery.d.ts" />
+import CalculateService = require("./CalculateService/ICalculateService");
+import BindingButtonsService = require("./BindingButtonsService/IBindingButtonsService");
+import Service = CalculateService.ICalculateService;
+import ButtonsService = BindingButtonsService.IBindingButtonsService;
 
 export class Calculator {
 
@@ -9,10 +13,10 @@ export class Calculator {
     private numbers: number[];
     private operators: string[];
 
-    private calculateService: ICalculateService;
-    private bindingButtonsService: IBindingButtonsService;
+    private calculateService: CalculateService.ICalculateService;
+    private bindingButtonsService: BindingButtonsService.IBindingButtonsService;
 
-    constructor(app: Iapp, calculateService: ICalculateService, bindingButtonsService: IBindingButtonsService) {
+    constructor(app: Iapp, calculateService: Service, bindingButtonsService: ButtonsService) {
 
         this.output = $(`#${app.output}`);
         this.calculate = $(`#${app.calculate}`);
