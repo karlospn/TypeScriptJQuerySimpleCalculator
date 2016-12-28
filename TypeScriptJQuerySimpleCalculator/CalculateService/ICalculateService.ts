@@ -1,3 +1,4 @@
 ﻿interface ICalculateService {
-    calculate(inputField: JQuery, outputField: JQuery);
+
+    calculate(inputField: JQuery, outputField: JQuery) : void ;
 }
