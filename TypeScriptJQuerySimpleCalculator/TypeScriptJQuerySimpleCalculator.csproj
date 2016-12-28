@@ -30,13 +30,17 @@
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="BindingButtonsService\BindingButtonsService.ts" />
     <TypeScriptCompile Include="BindingButtonsService\IBindingButtonsService.ts" />
+    <TypeScriptCompile Include="bootstrapper.ts" />
     <TypeScriptCompile Include="CalculateService\CalculateService.ts" />
+    <TypeScriptCompile Include="config.ts" />
     <TypeScriptCompile Include="Iapp.ts" />
     <TypeScriptCompile Include="CalculateService\ICalculateService.ts" />
     <TypeScriptCompile Include="typings\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\require.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower.json" />
+    <Content Include="package.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -78,7 +82,8 @@
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
-    <TypeScriptOutFile>app.js</TypeScriptOutFile>
+    <TypeScriptOutFile>
+    </TypeScriptOutFile>
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
