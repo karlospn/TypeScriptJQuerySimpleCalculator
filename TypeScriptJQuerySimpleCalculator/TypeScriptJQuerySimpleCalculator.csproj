@@ -33,7 +33,7 @@
     <TypeScriptCompile Include="bootstrapper.ts" />
     <TypeScriptCompile Include="CalculateService\CalculateService.ts" />
     <TypeScriptCompile Include="config.ts" />
-    <TypeScriptCompile Include="Iapp.ts" />
+    <TypeScriptCompile Include="ICalculator.ts" />
     <TypeScriptCompile Include="CalculateService\ICalculateService.ts" />
     <TypeScriptCompile Include="typings\jquery.d.ts" />
     <TypeScriptCompile Include="typings\require.d.ts" />

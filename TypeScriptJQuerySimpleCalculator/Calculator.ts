@@ -1,6 +1,6 @@
-﻿/// <reference path="typings/jquery.d.ts" />
-import { ICalculateService } from "./CalculateService/ICalculateService";
+﻿import { ICalculateService } from "./CalculateService/ICalculateService";
 import { IBindingButtonsService } from "./BindingButtonsService/IBindingButtonsService";
+import { ICalculator } from "./ICalculator";
 
 export class Calculator {
 
@@ -14,7 +14,7 @@ export class Calculator {
     private calculateService: ICalculateService;
     private bindingButtonsService: IBindingButtonsService;
 
-    constructor(app: Iapp, calculateService: ICalculateService, bindingButtonsService: IBindingButtonsService) {
+    constructor(app: ICalculator, calculateService: ICalculateService, bindingButtonsService: IBindingButtonsService) {
 
         this.output = $(`#${app.output}`);
         this.calculate = $(`#${app.calculate}`);
@@ -38,7 +38,6 @@ export class Calculator {
         this.clear.click((): void => {
             this.output.html("");
         });
-
         this.bindingButtonsService.bind([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], this.output);
         this.bindingButtonsService.bind(['+', '-', '*', '/', '.'], this.output);
 
