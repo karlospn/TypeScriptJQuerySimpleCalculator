@@ -1,6 +1,6 @@
-﻿import Service = require("./ICalculateService");
+﻿import { ICalculateService } from "./ICalculateService";
 
-export class CalculateService implements Service.ICalculateService {
+export class CalculateService implements ICalculateService {
 
     calculate(inputField: JQuery, outputField: JQuery) : void  {
         var value = eval(inputField.text());
